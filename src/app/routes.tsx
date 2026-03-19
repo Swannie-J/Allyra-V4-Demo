@@ -17,6 +17,14 @@ import { FundingPathways } from "./pages/funding-pathways";
 import { ImpactInclusion } from "./pages/impact-inclusion";
 import { Reports } from "./pages/reports";
 import { DfiSettings } from "./pages/dfi-settings";
+import { FspLayout } from "./components/fsp-layout";
+import { FspDashboard } from "./pages/fsp-dashboard";
+import { FspLendingBook } from "./pages/fsp-lending-book";
+import { FspCreditRisk } from "./pages/fsp-credit-risk";
+import { FspLoanProducts } from "./pages/fsp-loan-products";
+import { FspAllyraIntelligence } from "./pages/fsp-allyra-intelligence";
+import { FspReports } from "./pages/fsp-reports";
+import { FspSettings } from "./pages/fsp-settings";
 
 function ProtectedLayout() {
   return (
@@ -43,6 +51,19 @@ export const router = createBrowserRouter([
           { path: "impact-inclusion", Component: ImpactInclusion },
           { path: "reports", Component: Reports },
           { path: "settings", Component: DfiSettings },
+        ],
+      },
+      {
+        path: "fsp-dashboard",
+        Component: FspLayout,
+        children: [
+          { index: true, Component: FspDashboard },
+          { path: "lending-book", Component: FspLendingBook },
+          { path: "credit-risk", Component: FspCreditRisk },
+          { path: "loan-products", Component: FspLoanProducts },
+          { path: "allyra-intelligence", Component: FspAllyraIntelligence },
+          { path: "reports", Component: FspReports },
+          { path: "settings", Component: FspSettings },
         ],
       },
       {

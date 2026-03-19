@@ -371,6 +371,8 @@ export function ScenarioSelector({ onSelectScenario }: ScenarioSelectorProps) {
             {PARTNER_PORTFOLIOS.map((portfolio, index) => {
               const Icon = portfolio.icon;
               const isDFI = portfolio.label === "DFI Portfolio";
+              const isBank = portfolio.label === "Bank / FSP Portfolio";
+              const isClickable = isDFI || isBank;
               return (
                 <motion.div
                   key={portfolio.label}
@@ -384,12 +386,18 @@ export function ScenarioSelector({ onSelectScenario }: ScenarioSelectorProps) {
                 >
                   <div
                     className={`rounded-xl border transition-all ${
-                      isDFI
-                        ? "bg-white opacity-100 cursor-pointer hover:shadow-md hover:border-[#93c5fd]"
+                      isClickable
+                        ? "bg-white opacity-100 cursor-pointer hover:shadow-md"
                         : "bg-white opacity-70"
                     }`}
-                    style={{ borderColor: portfolio.borderColor }}
-                    onClick={isDFI ? () => navigate("/dfi-dashboard") : undefined}
+                    style={{
+                      borderColor: portfolio.borderColor,
+                    }}
+                    onClick={
+                      isBank ? () => navigate("/fsp-dashboard")
+                        : isDFI ? () => navigate("/dfi-dashboard")
+                        : undefined
+                    }
                   >
                     <div
                       className="px-4 sm:px-5 py-3.5 sm:py-4 flex items-center gap-3.5"
@@ -419,7 +427,7 @@ export function ScenarioSelector({ onSelectScenario }: ScenarioSelectorProps) {
                           {portfolio.description}
                         </p>
                       </div>
-                      {isDFI ? (
+                      {isClickable ? (
                         <span
                           className="shrink-0 text-[12px] sm:text-[13px] flex items-center gap-1 hover:gap-1.5 transition-all"
                           style={{ fontWeight: 600, color: portfolio.accentColor }}
