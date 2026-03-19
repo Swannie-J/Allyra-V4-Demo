@@ -1,0 +1,258 @@
+Create one primary desktop dashboard screen with the following layout:
+
+Top bar:
+
+Page title: “Portfolio Dashboard”
+
+Subtitle: “Allyra-enabled SME portfolio overview”
+
+Date range selector
+
+Search SMEs field
+
+Filters button
+
+Export button
+
+Institution badge
+
+User profile area
+
+Left sidebar navigation:
+
+Portfolio Dashboard
+
+SME Portfolio
+
+Readiness & Risk
+
+Technical Assistance
+
+Funding Pathways
+
+Impact & Inclusion
+
+Reports
+
+Settings
+
+Main dashboard content:
+
+Section 1: Executive summary row
+Create 6 elegant summary cards showing:
+
+Total SMEs in portfolio: 200
+
+Finance-ready SMEs
+
+SMEs requiring technical assistance
+
+SMEs in active funding pipeline
+
+SMEs with elevated risk signals
+
+Jobs supported
+
+These cards should be compact, sophisticated, and easy to scan.
+They should look clickable, with the suggestion that each opens a deeper filtered portfolio view.
+
+Section 2: Portfolio composition
+Create a two-column section.
+
+Left:
+
+Portfolio by sector chart
+
+Example sectors: agri-processing, manufacturing, retail, services, logistics, energy
+
+Right:
+
+Portfolio by geography chart
+
+Regional distribution for an African SME portfolio
+
+Optional chips for country breakdown
+
+Also include a small row of secondary structure indicators beneath or beside these charts:
+
+Export vs domestic mix
+
+Business age mix
+
+Urban vs rural footprint
+
+Supply-chain participation
+
+This section should feel high-level and strategic, not overloaded.
+
+Section 3: Readiness and progression
+Create a wide section showing how SMEs are distributed across stages such as:
+
+Early stage
+
+Growth stage
+
+Expansion stage
+
+Finance-ready
+
+Post-investment support
+
+Also show a progression funnel or pathway such as:
+
+Diagnosed
+
+In support
+
+Investment-ready
+
+In funding process
+
+Funded
+
+This section should communicate movement across the portfolio, not just static counts.
+It should feel like Allyra is helping the institution move SMEs from diagnosis to capital readiness.
+
+Section 4: Capability overview
+Create a clean institutional section showing 5 compact capability pillars across the portfolio:
+
+Strategy
+
+Finance
+
+Sales & Market Access
+
+Operations
+
+HR / Workforce
+
+This can be shown as 5 scorecards, 5 horizontal bars, or another refined summary format.
+Do not make this too visually heavy.
+It should suggest that the institution can click into each capability pillar to see underlying SMEs and common gaps.
+
+Section 5: Risk and support priorities
+Create a balanced two-column section.
+
+Left:
+Top portfolio bottlenecks across SMEs, for example:
+
+working capital pressure
+
+weak records and reporting
+
+market access constraints
+
+founder dependence
+
+operational capacity
+
+customer concentration
+
+Right:
+Early warning signals panel, for example:
+
+cash flow stress
+
+declining sales momentum
+
+execution delays
+
+documentation gaps
+
+margin pressure
+
+Use clean ranked lists, bars, or compact institutional visuals.
+Avoid overly complex graphs.
+
+Section 6: Technical assistance and intervention tracking
+Create a practical section showing:
+
+SMEs currently in technical assistance
+
+TA by type: financial management, market access, operations, governance, investment readiness
+
+Intervention status: planned, in progress, completed
+
+A small panel called “Where Allyra recommends intervention now”
+
+This section should feel operational and useful for a portfolio manager trying to decide where support resources should go.
+
+Section 7: Impact and inclusion
+Create a refined section showing 5 compact metrics such as:
+
+Women-led SMEs
+
+Youth-led SMEs
+
+SMEs in underserved regions
+
+Average revenue growth across portfolio
+
+Average employment growth
+
+This section should feel integrated into the institutional portfolio logic, not like a separate ESG marketing layer.
+It should communicate development and inclusion outcomes in a serious, measured way.
+
+Section 8: Priority SMEs table
+At the bottom, create a clean working table of 8 to 10 sample SMEs with columns such as:
+
+SME name
+
+Country
+
+Sector
+
+Stage
+
+Allyra readiness score
+
+Main bottleneck
+
+Current support track
+
+Funding pathway
+
+Risk status
+
+Use subtle colour coding for readiness and risk.
+This table is one of the most important parts of the dashboard.
+It should feel like a live portfolio management tool, not just a visual report.
+
+Right-side contextual panel or slim insight drawer:
+Add a slim right-side panel called “Allyra Portfolio Signals” with 4 short AI-generated institutional observations such as:
+
+“32 SMEs are commercially active but not yet finance-ready due to reporting gaps.”
+
+“Agri-processing shows the strongest near-term funding potential.”
+
+“Technical assistance demand is concentrated in working capital management and market access.”
+
+“12 SMEs have elevated execution risk and may need proactive intervention.”
+
+This panel should feel intelligent and useful, but not flashy or gimmicky.
+
+Interaction model:
+
+Clicking a summary card opens a filtered portfolio breakdown
+
+Clicking a sector or geography chart opens a portfolio composition detail view
+
+Clicking the readiness and progression section opens a deeper diagnostic and stage analysis page
+
+Clicking a capability pillar opens a view of SMEs with that capability gap
+
+Clicking TA sections opens intervention tracking and support allocation detail
+
+Clicking the impact section opens demographic and development outcome detail
+
+Clicking an SME row opens an SME profile page with Allyra insights, bottlenecks, support history, readiness notes, and funding pathway status
+
+If multiple screens are generated, also create these secondary pages:
+
+Readiness & Risk detail page
+
+Technical Assistance portfolio page
+
+SME portfolio list page
+
+Individual SME profile page
