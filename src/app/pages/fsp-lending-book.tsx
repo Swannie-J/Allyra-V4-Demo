@@ -124,10 +124,10 @@ export function FspLendingBook() {
                       <p className="text-[12px] text-[var(--allyra-neutral-700)]" style={{ fontWeight: 600 }}>{b.outstanding}</p>
                     </div>
                   </div>
-                  {/* Allyra Score mini bar */}
+                  {/* Intelligence Score mini bar */}
                   <div className="mt-3">
                     <div className="flex items-center justify-between mb-1">
-                      <p className="text-[10px] uppercase text-[var(--allyra-neutral-400)]" style={{ fontWeight: 600 }}>Allyra Score</p>
+                      <p className="text-[10px] uppercase text-[var(--allyra-neutral-400)]" style={{ fontWeight: 600 }}>Intelligence Score</p>
                       <span className="text-[11px]" style={{ fontWeight: 700, color: sc }}>{b.allyraScore}</span>
                     </div>
                     <div className="h-1.5 bg-[var(--allyra-neutral-100)] rounded-full overflow-hidden">
@@ -144,7 +144,7 @@ export function FspLendingBook() {
               <table className="w-full text-left">
                 <thead>
                   <tr className="border-b border-[var(--allyra-neutral-100)]">
-                    {["Borrower", "Country", "Sector", "Product", "Outstanding", "DSCR", "PAR", "Allyra Score", "Risk"].map((h) => (
+                    {["Borrower", "Country", "Sector", "Product", "Outstanding", "DSCR", "PAR", "Intelligence Score", "Risk"].map((h) => (
                       <th key={h} className="px-4 py-3 text-[11px] tracking-[0.04em] uppercase text-[var(--allyra-neutral-500)]" style={{ fontWeight: 600 }}>{h}</th>
                     ))}
                   </tr>

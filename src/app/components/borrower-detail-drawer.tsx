@@ -32,11 +32,11 @@ function scoreColor(score: number) {
 }
 
 function scoreLabel(score: number) {
-  if (score >= 81) return "Deep Knowledge";
-  if (score >= 61) return "Strong Knowledge";
-  if (score >= 41) return "Moderate Knowledge";
-  if (score >= 21) return "Limited Knowledge";
-  return "Minimal Knowledge";
+  if (score >= 81) return "Deep Insight";
+  if (score >= 61) return "Strong Insight";
+  if (score >= 41) return "Developing Insight";
+  if (score >= 21) return "Limited Insight";
+  return "Minimal Insight";
 }
 
 // Generate sub-dimension scores based on the composite score
@@ -115,10 +115,10 @@ export function BorrowerDetailDrawer({ borrower, onClose }: BorrowerDetailDrawer
               </div>
             </div>
 
-            {/* Allyra Knowledge Score */}
+            {/* Allyra Intelligence Score */}
             <div>
               <p className="text-[11px] tracking-[0.05em] uppercase text-[var(--allyra-neutral-400)] mb-3" style={{ fontWeight: 600 }}>
-                Allyra Knowledge Score
+                Allyra Intelligence Score
               </p>
               <div className="flex items-center gap-5 mb-4">
                 {/* Radial Gauge */}
@@ -141,8 +141,8 @@ export function BorrowerDetailDrawer({ borrower, onClose }: BorrowerDetailDrawer
                   <p className="text-[14px] text-[var(--allyra-neutral-800)]" style={{ fontWeight: 600 }}>{scoreLabel(borrower.allyraScore)}</p>
                   <p className="text-[12px] text-[var(--allyra-neutral-500)] mt-0.5">
                     {borrower.allyraScore >= 61
-                      ? "Sufficient data depth for confident risk assessment"
-                      : "Limited engagement data — additional due diligence recommended"}
+                      ? "Strong borrower understanding — supports confident credit decisions"
+                      : "Limited engagement data — enhanced due diligence recommended"}
                   </p>
                 </div>
               </div>

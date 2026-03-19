@@ -23,7 +23,7 @@ const SUMMARY_CARDS = [
 
 const ALLYRA_INTELLIGENCE = [
   { label: "Active Engagement", value: "72%", sub: "borrowers on Allyra", icon: Users, color: "#67e8f9" },
-  { label: "Avg Knowledge Score", value: "68", sub: "out of 100", icon: Brain, color: "#5eead4" },
+  { label: "Avg Intelligence Score", value: "68", sub: "out of 100", icon: Brain, color: "#5eead4" },
   { label: "Early Warnings", value: "14", sub: "pre-financial signals", icon: AlertTriangle, color: "#fbbf24" },
   { label: "Interventions", value: "8", sub: "to prevent defaults", icon: Shield, color: "#86efac" },
   { label: "Data Freshness", value: "92%", sub: "updated < 30 days", icon: Clock, color: "#c4b5fd" },
@@ -96,11 +96,11 @@ const PRIORITY_BORROWERS: Borrower[] = [
 ];
 
 const ALLYRA_SIGNALS = [
-  "3 borrowers showing cash flow deterioration patterns before it reflects in DSCR — early intervention window is 45 days.",
-  "Invoice discounting book in Nigeria is outperforming collateralized term loans by 3.2% on collections rate.",
-  "Allyra Knowledge Score above 70 correlates with 62% lower probability of PAR 30+ migration in this portfolio.",
-  "8 borrowers with declining engagement scores — potential relationship attrition risk. Recommend RM outreach.",
-  "Supply chain finance product shows lowest NPL ratio (1.2%) — consider expanding allocation.",
+  "Accra Solar Systems and Mombasa Marine Svcs both showing declining engagement velocity — historically a 45-day leading indicator of PAR migration in this portfolio.",
+  "Invoice discounting facilities in Nigeria collecting at 98.4% vs 95.2% for collateralised term loans. Product mix shift could improve portfolio-level collections.",
+  "Borrowers with Intelligence Scores above 70 have migrated to PAR 30+ at less than half the rate of those below 40 — early engagement drives better outcomes.",
+  "Soweto Quick Serve hasn't uploaded financials in 93 days despite quarterly covenant requirement. Dar Coffee Exports has 3 unverified findings from last analysis cycle.",
+  "Tshwane Agri Co-op and Cape Harvest Foods both flagged seasonal working capital pressure in Q2 growth plan reviews — proactive facility top-ups may prevent drawdown stress.",
 ];
 
 /* ─── Helpers ──────────────────────────────────────── */
@@ -180,29 +180,27 @@ export function FspDashboard() {
                     <div
                       key={card.label}
                       onClick={() => navigate(card.path)}
-                      className="rounded-xl border bg-white px-3.5 py-3 cursor-pointer hover:shadow-md transition-all group"
+                      className="rounded-xl border bg-white px-4 py-3.5 cursor-pointer hover:shadow-md transition-all group overflow-hidden"
                       style={{ borderColor: card.border }}
                     >
-                      <div className="flex items-center gap-2 mb-1.5">
+                      <div className="flex items-center gap-2 mb-2">
                         <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: card.bg }}>
                           <Icon className="w-3.5 h-3.5" style={{ color: card.color }} strokeWidth={2} />
                         </div>
-                        <p className="text-[12px] text-[var(--allyra-neutral-700)]" style={{ fontWeight: 600 }}>{card.label}</p>
+                        <p className="text-[11px] text-[var(--allyra-neutral-600)] leading-tight" style={{ fontWeight: 600 }}>{card.label}</p>
                       </div>
-                      <div className="flex items-end justify-between">
-                        <div>
-                          <p className="text-[20px] text-[var(--allyra-neutral-900)] leading-none" style={{ fontWeight: 700 }}>{card.value}</p>
-                          <p className="text-[10px] text-[var(--allyra-neutral-500)] mt-0.5">{card.sub}</p>
-                        </div>
+                      <p className="text-[22px] text-[var(--allyra-neutral-900)] leading-none" style={{ fontWeight: 700 }}>{card.value}</p>
+                      <div className="flex items-center justify-between mt-1.5">
+                        <p className="text-[10px] text-[var(--allyra-neutral-500)]">{card.sub}</p>
                         <span
-                          className="flex items-center gap-0.5 text-[12px] px-1.5 py-0.5 rounded-md"
+                          className="flex items-center gap-0.5 text-[10px] px-1.5 py-0.5 rounded-md whitespace-nowrap shrink-0"
                           style={{
                             fontWeight: 700,
                             color: card.label === "NPL Ratio" ? (card.trendUp ? "#dc2626" : "#2d6a4f") : (card.trendUp ? "#2d6a4f" : "#dc2626"),
                             backgroundColor: card.label === "NPL Ratio" ? (card.trendUp ? "#fef2f2" : "#f0faf4") : (card.trendUp ? "#f0faf4" : "#fef2f2"),
                           }}
                         >
-                          {card.trendUp ? <ArrowUpRight className="w-3.5 h-3.5" /> : <ArrowDownRight className="w-3.5 h-3.5" />}
+                          {card.trendUp ? <ArrowUpRight className="w-3 h-3" /> : <ArrowDownRight className="w-3 h-3" />}
                           {card.trend}
                         </span>
                       </div>
@@ -286,7 +284,7 @@ export function FspDashboard() {
                   ))}
                 </div>
                 {[
-                  { label: "Avg Loan Size", value: "R1.2M" },
+                  { label: "Avg Loan Size", value: "R1.0M" },
                   { label: "Avg Tenor", value: "36 mo" },
                   { label: "Collateral Coverage", value: "118%" },
                 ].map((m) => (
@@ -361,12 +359,12 @@ export function FspDashboard() {
 
             {/* ── Section: Knowledge Score Distribution ── */}
             <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.2 }}>
-              <SectionHeader title="Allyra Knowledge Score Distribution" />
+              <SectionHeader title="Allyra Intelligence Score Distribution" />
               <div className="rounded-xl border border-[var(--allyra-neutral-200)] bg-white p-5">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                   <div>
                     <p className="text-[12px] text-[var(--allyra-neutral-500)] mb-3">
-                      Distribution of Allyra Knowledge Scores across 200 active borrowers. Higher scores indicate deeper data and lower information asymmetry.
+                      Distribution of Allyra Intelligence Scores across 200 active borrowers. Higher scores reflect deeper borrower understanding and stronger confidence in credit decisions.
                     </p>
                     <div className="h-48">
                       <ResponsiveContainer width="100%" height="100%">
@@ -386,11 +384,11 @@ export function FspDashboard() {
                   <div className="space-y-2.5">
                     <p className="text-[12px] text-[var(--allyra-neutral-700)] mb-2" style={{ fontWeight: 600 }}>Lending Implications</p>
                     {[
-                      { band: "81-100", label: "Deep Knowledge", count: 44, color: "#2d6a4f", note: "Preferential pricing possible" },
-                      { band: "61-80", label: "Strong Knowledge", count: 78, color: "#0f766e", note: "Standard risk pricing" },
-                      { band: "41-60", label: "Moderate Knowledge", count: 48, color: "#d97706", note: "Additional due diligence" },
-                      { band: "21-40", label: "Limited Knowledge", count: 22, color: "#ea580c", note: "Higher risk premium" },
-                      { band: "0-20", label: "Minimal Knowledge", count: 8, color: "#dc2626", note: "Traditional assessment only" },
+                      { band: "81-100", label: "Deep Insight", count: 44, color: "#2d6a4f", note: "High confidence — streamlined decisioning" },
+                      { band: "61-80", label: "Strong Insight", count: 78, color: "#0f766e", note: "Good visibility — standard assessment" },
+                      { band: "41-60", label: "Developing Insight", count: 48, color: "#d97706", note: "Gaps identified — enhanced due diligence" },
+                      { band: "21-40", label: "Limited Insight", count: 22, color: "#ea580c", note: "Low visibility — manual review required" },
+                      { band: "0-20", label: "Minimal Insight", count: 8, color: "#dc2626", note: "Insufficient data — traditional assessment only" },
                     ].map((b) => (
                       <div key={b.band} className="flex items-center gap-3 p-2 rounded-lg bg-[var(--allyra-neutral-50)]">
                         <div className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: b.color }} />
@@ -421,7 +419,7 @@ export function FspDashboard() {
                   <table className="w-full text-left">
                     <thead>
                       <tr className="border-b border-[var(--allyra-neutral-100)]">
-                        {["Borrower", "Country", "Product", "Outstanding", "DSCR", "PAR", "Allyra Score", "Risk"].map((h) => (
+                        {["Borrower", "Country", "Product", "Outstanding", "DSCR", "PAR", "Intelligence Score", "Risk"].map((h) => (
                           <th key={h} className="px-4 py-3 text-[11px] tracking-[0.04em] uppercase text-[var(--allyra-neutral-500)]" style={{ fontWeight: 600 }}>{h}</th>
                         ))}
                       </tr>

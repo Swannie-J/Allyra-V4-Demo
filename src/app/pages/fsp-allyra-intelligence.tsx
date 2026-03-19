@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
 const KPI_CARDS = [
-  { label: "Avg Knowledge Score", value: "68", description: "Portfolio-wide average out of 100", icon: Brain, color: "#0f766e", bg: "#f0fdfa", border: "#99f6e4" },
+  { label: "Avg Intelligence Score", value: "68", description: "Portfolio-wide average out of 100", icon: Brain, color: "#0f766e", bg: "#f0fdfa", border: "#99f6e4" },
   { label: "Active Engagements", value: "72%", description: "Borrowers with Allyra interaction in last 30 days", icon: Users, color: "#0891b2", bg: "#ecfeff", border: "#a5f3fc" },
   { label: "Early Warnings", value: "14", description: "Pre-financial deterioration signals detected", icon: AlertTriangle, color: "#d97706", bg: "#fffbeb", border: "#fde68a" },
 ];
@@ -18,26 +18,26 @@ const SCORE_DISTRIBUTION = [
 ];
 
 const SCORE_BANDS = [
-  { band: "81-100", label: "Deep Knowledge", implication: "Minimal information asymmetry. Preferential pricing possible.", color: "#2d6a4f" },
-  { band: "61-80", label: "Strong Knowledge", implication: "Most risk factors well-understood. Standard pricing.", color: "#0f766e" },
-  { band: "41-60", label: "Moderate Knowledge", implication: "Gaps exist. Additional due diligence recommended.", color: "#d97706" },
-  { band: "21-40", label: "Limited Knowledge", implication: "Significant gaps. Higher risk premium warranted.", color: "#d97706" },
-  { band: "0-20", label: "Minimal Knowledge", implication: "Traditional credit assessment only.", color: "#dc2626" },
+  { band: "81-100", label: "Deep Insight", implication: "High confidence in borrower understanding. Supports streamlined credit decisioning.", color: "#2d6a4f" },
+  { band: "61-80", label: "Strong Insight", implication: "Good visibility into borrower operations. Standard assessment sufficient.", color: "#0f766e" },
+  { band: "41-60", label: "Developing Insight", implication: "Material gaps in borrower data. Enhanced due diligence recommended.", color: "#d97706" },
+  { band: "21-40", label: "Limited Insight", implication: "Significant information gaps. Manual review and RM engagement required.", color: "#d97706" },
+  { band: "0-20", label: "Minimal Insight", implication: "Insufficient Allyra data. Traditional credit assessment only.", color: "#dc2626" },
 ];
 
 const EARLY_WARNINGS = [
-  { borrower: "Accra Solar Systems", signal: "Engagement drop-off: no Allyra activity for 45 days despite active loan", severity: "high", score: 38 },
-  { borrower: "Soweto Quick Serve", signal: "Document staleness: financial records not updated in 90+ days", severity: "high", score: 47 },
-  { borrower: "Mombasa Marine Svcs", signal: "Growth plan stalled: 0 of 4 initiatives progressing for 60 days", severity: "high", score: 32 },
-  { borrower: "Lagos Textiles Ltd", signal: "Declining engagement velocity: interaction frequency dropped 60% month-over-month", severity: "medium", score: 54 },
-  { borrower: "Dar Coffee Exports", signal: "Partial verification: 3 of 8 business findings still unconfirmed", severity: "medium", score: 65 },
+  { borrower: "Accra Solar Systems", signal: "Last Allyra interaction 47 days ago — PO finance facility of R890K maturing in 90 days with DSCR already at 0.9x. Pattern matches 3 prior PAR migrations in Ghana energy sector.", severity: "high", score: 38 },
+  { borrower: "Soweto Quick Serve", signal: "Quarterly management accounts overdue by 33 days (covenant breach threshold: 45 days). Last uploaded financials showed declining gross margin from 28% to 21% over two periods.", severity: "high", score: 47 },
+  { borrower: "Mombasa Marine Svcs", signal: "Growth plan inactive since January — 0 of 4 initiatives progressing. DSCR dropped from 1.1x to 0.8x over same period. RM last visited 5 months ago.", severity: "high", score: 32 },
+  { borrower: "Lagos Textiles Ltd", signal: "Allyra interaction frequency dropped from 8 to 3 sessions per month. Invoice discounting drawdowns up 40% while sales conversation showed flat revenue — possible cash flow strain.", severity: "medium", score: 54 },
+  { borrower: "Dar Coffee Exports", signal: "3 of 8 findings from last business analysis still unverified — including supplier concentration risk and export licence renewal status. Both flagged as material in original assessment.", severity: "medium", score: 65 },
 ];
 
 const INTERVENTIONS = [
-  { borrower: "Accra Solar Systems", action: "Trigger RM outreach — re-engage on Allyra platform and update business profile", priority: "urgent" },
-  { borrower: "Mombasa Marine Svcs", action: "Schedule growth plan review session — assess whether business fundamentals have shifted", priority: "urgent" },
-  { borrower: "Soweto Quick Serve", action: "Request updated financials via Allyra document upload prompt", priority: "high" },
-  { borrower: "Lagos Textiles Ltd", action: "Send automated check-in — assess operational status and reactivate engagement", priority: "medium" },
+  { borrower: "Accra Solar Systems", action: "RM site visit before maturity — assess operational status, update business profile, and evaluate refinancing options given sub-1.0x DSCR.", priority: "urgent" },
+  { borrower: "Mombasa Marine Svcs", action: "Joint RM and credit review — DSCR below covenant threshold. Reactivate growth plan engagement and assess whether restructuring is needed.", priority: "urgent" },
+  { borrower: "Soweto Quick Serve", action: "Trigger Allyra document upload prompt with 12-day covenant deadline warning. Flag to RM for follow-up if not received within 5 days.", priority: "high" },
+  { borrower: "Lagos Textiles Ltd", action: "Automated Allyra check-in focused on revenue pipeline and cash position. Cross-reference invoice discounting utilisation against reported sales.", priority: "medium" },
 ];
 
 function severityColor(s: string) {
@@ -100,7 +100,7 @@ export function FspAllyraIntelligence() {
           >
             <div className="flex items-center gap-2 mb-4">
               <Brain className="w-5 h-5" style={{ color: "#0f766e" }} strokeWidth={1.8} />
-              <h2 className="text-[14px] text-[var(--allyra-neutral-800)]" style={{ fontWeight: 600 }}>Knowledge Score Distribution</h2>
+              <h2 className="text-[14px] text-[var(--allyra-neutral-800)]" style={{ fontWeight: 600 }}>Intelligence Score Distribution</h2>
             </div>
             <div className="h-52">
               <ResponsiveContainer width="100%" height="100%">
