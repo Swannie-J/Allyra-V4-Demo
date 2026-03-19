@@ -25,6 +25,14 @@ import { FspLoanProducts } from "./pages/fsp-loan-products";
 import { FspAllyraIntelligence } from "./pages/fsp-allyra-intelligence";
 import { FspReports } from "./pages/fsp-reports";
 import { FspSettings } from "./pages/fsp-settings";
+import { EsdLayout } from "./components/esd-layout";
+import { EsdDashboard } from "./pages/esd-dashboard";
+import { EsdSmePortfolio } from "./pages/esd-sme-portfolio";
+import { EsdCompliance } from "./pages/esd-compliance";
+import { EsdProcurement } from "./pages/esd-procurement";
+import { EsdImpact } from "./pages/esd-impact";
+import { EsdReports } from "./pages/esd-reports";
+import { EsdSettings } from "./pages/esd-settings";
 
 function ProtectedLayout() {
   return (
@@ -33,6 +41,8 @@ function ProtectedLayout() {
     </Shell>
   );
 }
+
+const basename = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 export const router = createBrowserRouter([
   {
@@ -67,6 +77,19 @@ export const router = createBrowserRouter([
         ],
       },
       {
+        path: "esd-dashboard",
+        Component: EsdLayout,
+        children: [
+          { index: true, Component: EsdDashboard },
+          { path: "sme-portfolio", Component: EsdSmePortfolio },
+          { path: "compliance", Component: EsdCompliance },
+          { path: "procurement", Component: EsdProcurement },
+          { path: "impact", Component: EsdImpact },
+          { path: "reports", Component: EsdReports },
+          { path: "settings", Component: EsdSettings },
+        ],
+      },
+      {
         Component: ProtectedLayout,
         children: [
           { path: "control-room", Component: ControlRoom },
@@ -80,4 +103,4 @@ export const router = createBrowserRouter([
       },
     ],
   },
-]);
+], { basename });

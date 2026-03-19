@@ -372,7 +372,8 @@ export function ScenarioSelector({ onSelectScenario }: ScenarioSelectorProps) {
               const Icon = portfolio.icon;
               const isDFI = portfolio.label === "DFI Portfolio";
               const isBank = portfolio.label === "Bank / FSP Portfolio";
-              const isClickable = isDFI || isBank;
+              const isESD = portfolio.label === "Corporate ESD Portfolio";
+              const isClickable = isDFI || isBank || isESD;
               return (
                 <motion.div
                   key={portfolio.label}
@@ -396,6 +397,7 @@ export function ScenarioSelector({ onSelectScenario }: ScenarioSelectorProps) {
                     onClick={
                       isBank ? () => navigate("/fsp-dashboard")
                         : isDFI ? () => navigate("/dfi-dashboard")
+                        : isESD ? () => navigate("/esd-dashboard")
                         : undefined
                     }
                   >
